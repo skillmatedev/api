@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <h1>Send Email</h1>
+  <form action="/send" method="POST">
+   
+    <label for="recipientEmail">Recipient Email:</label><br>
+    <input type="email" id="recipientEmail" name="recipientEmail" required><br><br>
+  
+    <button type="submit">Send Email</button>
+  </form>
+</body>
+</html>

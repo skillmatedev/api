@@ -1,0 +1,69 @@
+<!DOCmessage html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #1a202c;
+      padding: 16px;
+      font-family: 'Sora, sans-serif', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      max-width: 400px;
+      width: 100%;
+      background-color: white;
+      padding: 32px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0DBA4B;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    p {
+      font-size: 16px;
+      margin-top: 16px;
+    }
+    .font-semibold {
+      font-weight: bold;
+    }
+    .text-green {
+      color: #0DBA4B;
+      text-decoration: underline;
+    }
+  </style>
+  <title>Thank You for Your Question</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Thank You for Your Question!</h1>
+    <p>Dear <%= name %>,</p>
+    <p>
+      Thank you for reaching out to us. We have received your question:
+    </p>
+    <p>
+      <span class="font-semibold"><%= message %></span>
+    </p>
+    <p>
+      Our team will review your question and get back to you as soon as possible. We appreciate your interest in Skillmate and are here to help you with any inquiries you may have.
+    </p>
+    <p>
+      In the meantime, feel free to explore more about our services and how we can assist you in your career journey.
+    </p>
+    <p class="font-semibold mt-6">
+      Best Regards,<br />
+      The Skillmate Team<br />
+      <a href="mailto:career@skillmate.ai" class="text-green">career@skillmate.ai</a>
+    </p>
+  </div>
+</body>
+</html>
