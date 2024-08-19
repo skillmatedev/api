@@ -51,14 +51,14 @@ router.post("/send", async function (req, res, next) {
 
     await transporter.sendMail(mailOptions);
 
-    const mail = new Mail({
-      senderEmail,
-      recipientEmail,
-      subject,
-    });
-    await mail.save();
-    console.log(`Email sent ${recipientEmail} and data saved to database.`);
-    res.send("Email sent and data saved to database.");
+    // const mail = new Mail({
+    //   senderEmail,
+    //   recipientEmail,
+    //   subject,
+    // });
+    // await mail.save();
+    console.log(`Email sent ${recipientEmail}`);
+    res.status(200).send(`Email sent ${recipientEmail}`);
   } catch (err) {
     console.error("Error sending email:", err);
     res.status(500).send("Error sending email.");
@@ -78,7 +78,7 @@ router.post("/send/faq", async (req, res, next) => {
     const templatePath1 = path.join(__dirname, "../views/questionRecieved.ejs");
     const templatePath2 = path.join(
       __dirname,
-      "../views/questionSubmitted.ejs",
+      "../views/questionSubmitted.ejs"
     );
 
     // Render the EJS templates to HTML
