@@ -32,7 +32,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
       );
       res.send({
         message: "File uploaded successfully",
-        url: `/resume/${filename}.pdf`,
+        url: `${filename}.pdf`,
       });
     } catch (err) {
       console.error(err);
@@ -64,10 +64,8 @@ router.post("/upload", upload.single("file"), async (req, res) => {
 
 // download route
 router.get("/:file", (req, res) => {
-  const address = path.join(
-    __dirname,
-    `../public/resume/${req.params.file}.pdf`
-  );
+  console.log(req.params.file);
+  const address = path.join(__dirname, `../public/resume/${req.params.file}`);
   console.log(address);
   fs.access(address, fs.F_OK, (err) => {
     if (err) {
