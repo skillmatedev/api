@@ -10,9 +10,12 @@ const connectDB = async () => {
       // useCreateIndex: true,
       // useFindAndModify: false,
       useUnifiedTopology: true,
+      dbName: "careerstage",
     })
     .catch((err) => console.log(`Error connection to DB: ${err}`));
-  console.log(`MongoDB connected: ${connection.connection.host}`);
+  console.log(
+    `MongoDB connected\nURI: ${connection.connection.host}\nDatabase:`
+  );
 };
 
 module.exports = connectDB;
