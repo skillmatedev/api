@@ -28,11 +28,11 @@ router.post("/upload", upload.single("file"), async (req, res) => {
     try {
       await fs.promises.writeFile(
         `${__dirname}/../public/resume/${filename}.pdf`,
-        file.buffer,
+        file.buffer
       );
       res.send({
         message: "File uploaded successfully",
-        url: `${filename}`,
+        url: `/resume/${filename}.pdf`,
       });
     } catch (err) {
       console.error(err);
@@ -66,7 +66,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
 router.get("/:file", (req, res) => {
   const address = path.join(
     __dirname,
-    `../public/resume/${req.params.file}.pdf`,
+    `../public/resume/${req.params.file}.pdf`
   );
   console.log(address);
   fs.access(address, fs.F_OK, (err) => {
