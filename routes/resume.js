@@ -40,25 +40,6 @@ router.post("/upload", upload.single("file"), async (req, res) => {
         message: "Error while uploading",
       });
     }
-    // fs.writeFileSync(
-    //   file.buffer,
-    //   fs.createWriteStream(`${__dirname}/../public/resume/${filename}`),
-    // )
-    // * not returning promise
-    // fs.writeFileSync(`${__dirname}/../public/resume/${filename}`, file.buffer)
-    //   .then(() => {
-    //     console.log(`33 then /resume/${filename}`);
-    //     res.send({
-    //       message: "File uploaded successfully",
-    //       url: `/resume/${filename}`,
-    //     });
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     res.status(400).json({
-    //       message: "Error while uploading",
-    //     });
-    //   });
   }
 });
 

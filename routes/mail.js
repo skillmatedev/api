@@ -16,8 +16,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secureConnection: false,
   auth: {
-    user: "prasanth@skillmate.ai",
-    pass: "Prasanth@#1243",
+    user: process.env.EMAIL_ID,
+    pass: process.env.EMAIL_PASSWORD,
   },
 });
 
@@ -35,7 +35,7 @@ router.get("/faq", function (req, res, next) {
 // @ts-ignore
 router.post("/send", async function (req, res, next) {
   const { recipientEmail, fullname } = req.body;
-  const senderEmail = "Skill Mate <aashish@skillmate.ai>";
+  const senderEmail = `Skill Mate <career@skillmate.ai>`;
   const subject = `Congratulations ${fullname} 🎉 🎉!!! Thanks for registering with us!`;
   try {
     const templatePath = path.join(__dirname, "../views/emailTemplate.ejs");
