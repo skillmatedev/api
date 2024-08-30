@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Sora', sans-serif;
+            background-color: #f7fafc;
+            padding: 16px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #0DBA4B;
+            text-align: center;
+            padding: 16px;
+            margin-top: 24px;
+            border-radius: 8px;
+            color: #ffffff;
+        }
+        .content {
+            margin-top: 16px;
+            font-size: 18px;
+        }
+        .footer {
+            background-color: #0DBA4B;
+            color: #ffffff;
+            padding: 16px;
+            margin-top: 24px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Welcome to Skillmate!</div>
+        <div class="content">
+            <p>Dear <%= fullname %>,</p>
+            <p>Your posted job has been declined as it doesn't meets the requirement.</p>
+            <h1>Review:</h1>
+            <p><%= comment %></p>
+            <h2> Stay connected for further updates</h2>
+            
+        </div>
+        <div class="footer">Best Regards, The Skillmate Team</div>
+    </div>
+</body>
+</html>

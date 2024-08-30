@@ -33,12 +33,12 @@ router.get("/faq", function (req, res, next) {
 
 // POST route to send an email using EJS template
 // @ts-ignore
-router.post("/send", async function (req, res, next) {
+router.post("/send/application", async function (req, res, next) {
   const { recipientEmail, fullname } = req.body;
   const senderEmail = `Skill Mate <career@skillmate.ai>`;
   const subject = `Congratulations ${fullname} 🎉 🎉!!! Thanks for registering with us!`;
   try {
-    const templatePath = path.join(__dirname, "../views/emailTemplate.ejs");
+    const templatePath = path.join(__dirname, "../views/applicationCong.ejs");
     const htmlContent = await ejs.renderFile(templatePath, { fullname });
 
     const mailOptions = {
@@ -57,6 +57,87 @@ router.post("/send", async function (req, res, next) {
     //   subject,
     // });
     // await mail.save();
+    console.log(`Email sent ${recipientEmail}`);
+    res.status(200).send(`Email sent ${recipientEmail}`);
+  } catch (err) {
+    console.error("Error sending email:", err);
+    res.status(500).send("Error sending email.");
+  }
+});
+router.post("/send/brands", async function (req, res, next) {
+  const { recipientEmail, fullname } = req.body;
+  const senderEmail = `Skill Mate <career@skillmate.ai>`;
+  const subject = `Congratulations ${fullname} 🎉 🎉!!! Thanks for registering with us!`;
+  try {
+    const templatePath = path.join(__dirname, "../views/brandsCong.ejs");
+    const htmlContent = await ejs.renderFile(templatePath, { fullname });
+
+    const mailOptions = {
+      from: senderEmail,
+      to: recipientEmail,
+      subject: subject,
+      text: `Hello ${fullname}, Welcome to Skill Mate!`,
+      html: htmlContent,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    // const mail = new Mail({
+    //   senderEmail,
+    //   recipientEmail,
+    //   subject,
+    // });
+    // await mail.save();
+    console.log(`Email sent ${recipientEmail}`);
+    res.status(200).send(`Email sent ${recipientEmail}`);
+  } catch (err) {
+    console.error("Error sending email:", err);
+    res.status(500).send("Error sending email.");
+  }
+});
+router.post("/send/job-approve", async function (req, res, next) {
+  const { recipientEmail, fullname } = req.body;
+  const senderEmail = `Skill Mate <career@skillmate.ai>`;
+  const subject = `Congratulations ${fullname} 🎉 🎉!!! your job has been approved!`;
+  try {
+    const templatePath = path.join(__dirname, "../views/jobApprove.ejs");
+    const htmlContent = await ejs.renderFile(templatePath, { fullname });
+
+    const mailOptions = {
+      from: senderEmail,
+      to: recipientEmail,
+      subject: subject,
+      text: `Hello ${fullname}, Welcome to Skill Mate!`,
+      html: htmlContent,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    console.log(`Email sent ${recipientEmail}`);
+    res.status(200).send(`Email sent ${recipientEmail}`);
+  } catch (err) {
+    console.error("Error sending email:", err);
+    res.status(500).send("Error sending email.");
+  }
+});
+router.post("/send/job-decline", async function (req, res, next) {
+  const { recipientEmail, fullname,comment } = req.body;
+  const senderEmail = `Skill Mate <career@skillmate.ai>`;
+  const subject = `Feeling bad to say ${fullname}, that your job has been declined!`;
+  try {
+    const templatePath = path.join(__dirname, "../views/jobApprove.ejs");
+    const htmlContent = await ejs.renderFile(templatePath, { fullname },{comment});
+
+    const mailOptions = {
+      from: senderEmail,
+      to: recipientEmail,
+      subject: subject,
+      text: `Hello ${fullname}, Welcome to Skill Mate!`,
+      html: htmlContent,
+    };
+
+    await transporter.sendMail(mailOptions);
+
     console.log(`Email sent ${recipientEmail}`);
     res.status(200).send(`Email sent ${recipientEmail}`);
   } catch (err) {
