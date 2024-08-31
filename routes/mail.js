@@ -121,12 +121,15 @@ router.post("/send/job-approve", async function (req, res, next) {
   }
 });
 router.post("/send/job-decline", async function (req, res, next) {
-  const { recipientEmail, fullname,comment } = req.body;
+  const { recipientEmail, fullname, comment } = req.body;
   const senderEmail = `Skill Mate <career@skillmate.ai>`;
   const subject = `Feeling bad to say ${fullname}, that your job has been declined!`;
   try {
-    const templatePath = path.join(__dirname, "../views/jobApprove.ejs");
-    const htmlContent = await ejs.renderFile(templatePath, { fullname },{comment});
+    const templatePath = path.join(__dirname, "../views/jobDecline.ejs");
+    const htmlContent = await ejs.renderFile(templatePath, {
+      fullname,
+      comment,
+    });
 
     const mailOptions = {
       from: senderEmail,
