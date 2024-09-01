@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com-work/skillmatedev/api/compare/v1.0.3...v1.0.4) (2024-09-01)
+
+
+### Bug Fixes
+
+* added comments that passes to ejs file ([593b734](https://github.com-work/skillmatedev/api/commit/593b73408fb9a1dacf2a8f0bf8eb1057a765205c))
+* mail owner changes to skillmate career ([ca02eff](https://github.com-work/skillmatedev/api/commit/ca02eff1295186ad26d01e03519b36dfbaf49095))
+* removed extras spaces to remove more button in the mail ([0226ad4](https://github.com-work/skillmatedev/api/commit/0226ad4895fb3f563365870b0747ec61aeda64a4))
+
 ### [1.0.3](https://github.com-work/skillmatedev/api/compare/v1.0.2...v1.0.3) (2024-08-30)
 
 
