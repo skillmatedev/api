@@ -146,6 +146,34 @@ router.post("/send/job-decline", async function (req, res, next) {
   }
 });
 
+
+
+router.post("/send/job-applied", async function (req, res, next) {
+  const { recipientEmail, fullname, brandName, jobTitle } = req.body;
+  const senderEmail = `Skill Mate <career@skillmate.ai>`;
+  const subject = `Feeling bad to say ${fullname}, that your job has been declined!`;
+  try {
+    const templatePath = path.join(__dirname, "../views/jobApprove.ejs");
+    const htmlContent = await ejs.renderFile(templatePath, { fullname },{comment},{brandName},{jobTitle});
+
+    const mailOptions = {
+      from: senderEmail,
+      to: recipientEmail,
+      subject: subject,
+      text: `Hello ${fullname}, Welcome to Skill Mate!`,
+      html: htmlContent,
+    };
+
+    await transporter.sendMail(mailOptions);
+    
+    console.log(`Email sent ${recipientEmail}`);
+    res.status(200).send(`Email sent ${recipientEmail}`);
+  } catch (err) {
+    console.error("Error sending email:", err);
+    res.status(500).send("Error sending email.");
+  }
+});
+
 // POST route to handle dynamic email template using React components
 // @ts-ignore
 router.post("/send/faq", async (req, res, next) => {

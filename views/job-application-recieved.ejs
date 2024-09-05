@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Received</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+        }
+        .header {
+            background-color: #00a651;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .email-body {
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .footer {
+            background-color: #00a651;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+        }
+        .unsubscribe {
+            color: #555;
+            font-size: 11px;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>Your Job Application Has Been Received!</h1>
+        </div>
+        <div class="email-body">
+            <p>Hello <%= fullname %>,</p>
+            <p>
+                Thank you for registering for the <%= jobTitle %> position at <%= brandName %>. We’ve received your application and are reviewing your qualifications.
+            </p>
+            <p>You can track your application status by logging into your account.</p>
+            <p>Best of luck!</p>
+            <p>Best Regards,</p>
+            <p><strong>The <%= brandName %> Team</strong></p>
+        </div>
+        <div class="footer">
+            <p>© 2024 <%= brandName %>. All rights reserved.</p>
+            <p>
+                <a href="#">Contact Us</a> | <a href="#">Unsubscribe</a>
+            </p>
+        </div>
+        <div class="unsubscribe">
+            <p>You have received this mail because your e-mail ID is registered with <%= brandName %>. This is a system-generated e-mail, please don't reply to this message.</p>
+            <p>Please do not pay any money to anyone who promises to find you a job. <%= brandName %> shall not have any responsibility in this regard. We recommend that you visit our Terms & Conditions and the Security Advice for more information.</p>
+        </div>
+    </div>
+</body>
+</html>
