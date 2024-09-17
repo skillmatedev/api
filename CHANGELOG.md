@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com-work/skillmatedev/api/compare/v1.0.5...v1.0.6) (2024-09-17)
+
+
+### Bug Fixes
+
+* **email:** update email credentials for mail services ([c6f13ec](https://github.com-work/skillmatedev/api/commit/c6f13ec7fbab49729ad3c56942c5501a73d88caa))
+
 ### [1.0.5](https://github.com-work/skillmatedev/api/compare/v1.0.3...v1.0.5) (2024-09-09)
 
 
