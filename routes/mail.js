@@ -153,8 +153,14 @@ router.post("/send/job-applied", async function (req, res, next) {
   const senderEmail = `Skill Mate <career@skillmate.ai>`;
   const subject = `Your Job Application Has Been Received!`;
   try {
-    const templatePath = path.join(__dirname, "../views/jobApplied.ejs");
-    const htmlContent = await ejs.renderFile(templatePath, {
+    const templatePath1 = path.join(__dirname, "../views/jobApplied.ejs");
+    const templatePath2 = path.join(__dirname, "../views/jobAppliedAdmin.ejs");
+    const htmlContent = await ejs.renderFile(templatePath1, {
+      fullname,
+      brandName,
+      jobTitle,
+    });
+    const htmlContent2 = await ejs.renderFile(templatePath2, {
       fullname,
       brandName,
       jobTitle,
@@ -167,8 +173,16 @@ router.post("/send/job-applied", async function (req, res, next) {
       text: `Hello ${fullname}, Welcome to Skill Mate!`,
       html: htmlContent,
     };
+    const mailOptions2 = {
+      from: "Skill Mate <career@skillmate.ai>",
+      to: "career@skillmate.ai",
+      subject: "New Question",
+      text: `A new question has been submitted by ${name} (${email})`,
+      html: htmlContent2,
+    };
 
     await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions2);
 
     console.log(`Email sent ${recipientEmail}`);
     res.status(200).send(`Email sent for job applied to ${recipientEmail}`);
@@ -203,7 +217,7 @@ router.post("/send/faq", async (req, res, next) => {
     });
 
     const mailOptions1 = {
-      from: "Skill Mate <aashish@skillmate.ai>",
+      from: "Skill Mate <career@skillmate.ai>",
       to: email,
       subject: "Question Submitted",
       text: `Hello ${name}, welcome to Skill Mate!`,
@@ -211,8 +225,8 @@ router.post("/send/faq", async (req, res, next) => {
     };
 
     const mailOptions2 = {
-      from: "Skill Mate <aashish@skillmate.ai>",
-      to: "aashish@skillmate.ai",
+      from: "Skill Mate <career@skillmate.ai>",
+      to: "career@skillmate.ai",
       subject: "New Question",
       text: `A new question has been submitted by ${name} (${email})`,
       html: htmlContent2,
