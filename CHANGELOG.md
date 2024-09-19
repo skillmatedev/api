@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * change subject in job-apply and update terms in the ejs file ([26610f1](https://github.com-work/skillmatedev/api/commit/26610f12cde089808587bcddcdff713fa5dee801))
+* mail for admin while applying for job
 
 ### [1.0.6](https://github.com-work/skillmatedev/api/compare/v1.0.5...v1.0.6) (2024-09-17)
 
