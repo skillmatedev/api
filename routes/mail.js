@@ -153,7 +153,7 @@ router.post("/send/job-applied", async function (req, res, next) {
   const senderEmail = `Skill Mate <career@skillmate.ai>`;
   const subject = `Your Job Application Has Been Received!`;
   try {
-    const templatePath1 = path.join(__dirname, "../views/jobApplied.ejs");
+    const templatePath1 = path.join(__dirname, "../views/job-application-recieved.ejs");
     const templatePath2 = path.join(__dirname, "../views/jobAppliedAdmin.ejs");
     const htmlContent = await ejs.renderFile(templatePath1, {
       fullname,
@@ -164,6 +164,7 @@ router.post("/send/job-applied", async function (req, res, next) {
       fullname,
       brandName,
       jobTitle,
+      recipientEmail
     });
 
     const mailOptions = {
