@@ -39,6 +39,7 @@ app.use(express.json());
 
 app.use("/api/v1/resume", require("./routes/resume"));
 app.use("/api/v1/mail", require("./routes/mail"));
+app.use("/api/v1/mailGen", require("./routes/mailGen"));
 // app.use("api/v1/download", require("./routes/downloadRoutes"));
 
 app.listen(port, () => {
