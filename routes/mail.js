@@ -7,6 +7,7 @@ const Faq = require("../models/faq");
 const ejs = require("ejs");
 const React = require("react");
 const ReactDOMServer = require("react-dom/server");
+const Deny = require("../models/JobDeny");
 
 const router = express.Router();
 
@@ -139,8 +140,17 @@ router.post("/send/job-decline", async function (req, res, next) {
       html: htmlContent,
     };
 
-    await transporter.sendMail(mailOptions);
+    
 
+    await transporter.sendMail(mailOptions);
+    const data = new Deny({
+      recipientEmail,
+      fullname,
+      comment      
+    })
+
+    await data.save();
+    console.log(data)
     console.log(`Email sent ${recipientEmail}`);
     res.status(200).send(`Email sent ${recipientEmail}`);
   } catch (err) {
@@ -177,8 +187,8 @@ router.post("/send/job-applied", async function (req, res, next) {
     const mailOptions2 = {
       from: "Skill Mate <career@skillmate.ai>",
       to: "career@skillmate.ai",
-      subject: "New Question",
-      text: `A new question has been submitted by ${name} (${email})`,
+      subject: "New Job Apllication",
+      text: `A new Job application has been submitted by ${fullname} (${recipientEmail})`,
       html: htmlContent2,
     };
 
@@ -196,8 +206,8 @@ router.post("/send/job-applied", async function (req, res, next) {
 // POST route to handle dynamic email template using React components
 // @ts-ignore
 router.post("/send/faq", async (req, res, next) => {
-  const { email, name, message } = req.body;
-  console.log(message);
+  const { email, name, type } = req.body;
+  console.log(type);
   if (!email) {
     return res.status(400).json({ message: "Missing email field" });
   }
@@ -210,11 +220,11 @@ router.post("/send/faq", async (req, res, next) => {
     );
 
     // Render the EJS templates to HTML
-    const htmlContent1 = await ejs.renderFile(templatePath1, { name, message });
+    const htmlContent1 = await ejs.renderFile(templatePath1, { name, type });
     const htmlContent2 = await ejs.renderFile(templatePath2, {
       name,
       email,
-      message,
+      type,
     });
 
     const mailOptions1 = {
@@ -234,16 +244,16 @@ router.post("/send/faq", async (req, res, next) => {
     };
 
     const info1 = await transporter.sendMail(mailOptions1);
-    console.log("info1:", info1);
+    // console.log("info1:", info1);
     const info2 = await transporter.sendMail(mailOptions2);
 
     const faq = new Faq({
       email,
       name,
-      message,
+      message:type,
     });
     await faq.save();
-
+   console.log(faq)
     res.status(200).json({ success: true, info1, info2 });
   } catch (error) {
     console.error("Error sending email:", error);
