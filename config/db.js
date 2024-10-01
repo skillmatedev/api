@@ -1,21 +1,24 @@
 // @ts-nocheck
+require('dotenv').config(); // Load environment variables from .env
 
 const mongoose = require("mongoose");
 
 const connectDB = async () => {
-  console.log("connecting to DB");
-  const connection = await mongoose
-    .connect(process.env.MONGODB_URI, {
+  try {
+    console.log("connecting to DB");
+    const connection = await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
-      // useCreateIndex: true,
-      // useFindAndModify: false,
       useUnifiedTopology: true,
       dbName: "careerstage",
-    })
-    .catch((err) => console.log(`Error connection to DB: ${err}`));
-  console.log(
-    `MongoDB connected\nURI: ${connection.connection.host}\nDatabase:`
-  );
+    });
+
+    console.log(
+      `MongoDB connected\nURI: ${connection.connection.host}\nDatabase: ${connection.connection.db.databaseName}`
+    );
+  } catch (err) {
+    console.error(`Error connection to DB: ${err}`);
+    process.exit(1); // Exit with failure
+  }
 };
 
 module.exports = connectDB;
