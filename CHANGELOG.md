@@ -2,26 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [2.0.0](https://www.github.com/skillmatedev/api/compare/v1.0.7...v2.0.0) (2024-10-02)
-
-
-### ⚠ BREAKING CHANGES
-
-* **survey:** Use mailGen to send mail to admin and ejs to account holder and jobPortal completed
-
-### Features
-
-* **model:** adding of deny and survey db ([e493517](https://www.github.com/skillmatedev/api/commit/e4935178509be83b0a27fcb0bee53a6e3b633350))
-* **survey:** mail setup for survey ([6c4e798](https://www.github.com/skillmatedev/api/commit/6c4e7983de7a33e1f7d43750de342cd048378b0d))
-
-
-### Bug Fixes
-
-* **faq:** faq bugs are cleared ([12a62e6](https://www.github.com/skillmatedev/api/commit/12a62e64e42542a1698f904082fa600d4cc2ec9c))
-* **job_applied:** admin will get the mail intementation ([c22e963](https://www.github.com/skillmatedev/api/commit/c22e96374fa0935bf872b4e7c6385b7ad8affda6))
-* **survey:** add `isInterested` field to differentiate surveys ([655a669](https://www.github.com/skillmatedev/api/commit/655a669f6148a43dbb5eb44762cfa02ae17dbf61))
-* update env in `mailGen` and update model to service to type `array` ([3b51617](https://www.github.com/skillmatedev/api/commit/3b5161714ce59e6f3be1c9f82b2515af780281a8))
-
 ### [1.0.7](https://github.com-work/skillmatedev/api/compare/v1.0.6...v1.0.7) (2024-09-19)
 
 
