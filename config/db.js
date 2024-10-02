@@ -1,5 +1,5 @@
 // @ts-nocheck
-require('dotenv').config(); // Load environment variables from .env
+require("dotenv").config(); // Load environment variables from .env
 
 const mongoose = require("mongoose");
 
@@ -9,7 +9,6 @@ const connectDB = async () => {
     const connection = await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      dbName: "careerstage",
     });
 
     console.log(
