@@ -7,7 +7,7 @@ const Faq = require("../models/faq");
 const ejs = require("ejs");
 const React = require("react");
 const ReactDOMServer = require("react-dom/server");
-const Deny = require("../models/JobDeny");
+const Deny = require("../models/jobDeny");
 
 const router = express.Router();
 
@@ -140,17 +140,15 @@ router.post("/send/job-decline", async function (req, res, next) {
       html: htmlContent,
     };
 
-    
-
     await transporter.sendMail(mailOptions);
     const data = new Deny({
       recipientEmail,
       fullname,
-      comment      
-    })
+      comment,
+    });
 
     await data.save();
-    console.log(data)
+    console.log(data);
     console.log(`Email sent ${recipientEmail}`);
     res.status(200).send(`Email sent ${recipientEmail}`);
   } catch (err) {
@@ -163,7 +161,10 @@ router.post("/send/job-applied", async function (req, res, next) {
   const senderEmail = `Skill Mate <career@skillmate.ai>`;
   const subject = `Your Job Application Has Been Received!`;
   try {
-    const templatePath1 = path.join(__dirname, "../views/job-application-recieved.ejs");
+    const templatePath1 = path.join(
+      __dirname,
+      "../views/job-application-recieved.ejs"
+    );
     const templatePath2 = path.join(__dirname, "../views/jobAppliedAdmin.ejs");
     const htmlContent = await ejs.renderFile(templatePath1, {
       fullname,
@@ -174,7 +175,7 @@ router.post("/send/job-applied", async function (req, res, next) {
       fullname,
       brandName,
       jobTitle,
-      recipientEmail
+      recipientEmail,
     });
 
     const mailOptions = {
@@ -250,10 +251,10 @@ router.post("/send/faq", async (req, res, next) => {
     const faq = new Faq({
       email,
       name,
-      message:type,
+      message: type,
     });
     await faq.save();
-   console.log(faq)
+    console.log(faq);
     res.status(200).json({ success: true, info1, info2 });
   } catch (error) {
     console.error("Error sending email:", error);
