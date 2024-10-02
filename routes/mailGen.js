@@ -118,6 +118,7 @@ router.post("/send/looking", async function (req, res, next) {
       email: recipientEmail,
       name: fullname,
       service,
+      isInterested: true,
     });
     await survey.save();
 
@@ -199,6 +200,7 @@ router.post("/send/notnow", async function (req, res, next) {
       email: recipientEmail,
       name: fullname,
       service: feedback,
+      isInterested: false,
     });
     await survey.save();
 

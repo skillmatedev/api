@@ -5,6 +5,9 @@ const surveySchema = new mongoose.Schema({
   email: { type: String, required: true },
   name: { type: String },
   sentAt: { type: Date, default: Date.now },
+  isInterested: {
+    type: Boolean,
+  },
 });
 
 const survey = mongoose.model("Survey", surveySchema);

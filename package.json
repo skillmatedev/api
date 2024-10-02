@@ -17,6 +17,7 @@
     "connect-mongo": "^5.1.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.0",
@@ -41,5 +42,10 @@
     "husky": "^8.0.0",
     "nodemon": "^3.1.4",
     "standard-release": "^0.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
