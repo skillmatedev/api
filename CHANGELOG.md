@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://www.github.com/skillmatedev/api/compare/v2.0.0...v2.0.1) (2024-11-17)
+
+
+### Bug Fixes
+
+* **mail:** mail api for mentors ([a004857](https://www.github.com/skillmatedev/api/commit/a0048575303de960549d3aa3dfba79957f91ccb2))
+
 ## [2.0.0](https://www.github.com/skillmatedev/api/compare/v1.0.7...v2.0.0) (2024-10-02)
 
 
