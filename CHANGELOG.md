@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://www.github.com/skillmatedev/api/compare/v2.0.0...v2.1.0) (2024-11-21)
+
+
+### Features
+
+* **mail:** adding  unsub mail ([81b9642](https://www.github.com/skillmatedev/api/commit/81b9642fb94b460d7dc7bc14db90e1a093844159))
+
+
+### Bug Fixes
+
+* add fullname field in unsub mail to users ([f281401](https://www.github.com/skillmatedev/api/commit/f281401bd6ea1138ffcda98658412ff6b3a047ec))
+* **mail:** mail api for mentors ([a004857](https://www.github.com/skillmatedev/api/commit/a0048575303de960549d3aa3dfba79957f91ccb2))
+
 ## [2.0.0](https://www.github.com/skillmatedev/api/compare/v1.0.7...v2.0.0) (2024-10-02)
 
 
