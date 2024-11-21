@@ -261,7 +261,6 @@ router.post("/send/faq", async (req, res, next) => {
   }
 });
 
-
 router.post("/send/mentorReg", async (req, res) => {
   const { mentor, email } = req.body;
   if (!email) {
@@ -270,7 +269,10 @@ router.post("/send/mentorReg", async (req, res) => {
 
   try {
     const templatePath1 = path.join(__dirname, "../views/mentors/register.ejs");
-    const templatePath2 = path.join(__dirname, "../views/mentors/admin/register.ejs");
+    const templatePath2 = path.join(
+      __dirname,
+      "../views/mentors/admin/register.ejs"
+    );
     const html1 = await ejs.renderFile(templatePath1, { mentor });
     const html2 = await ejs.renderFile(templatePath2, { mentor, email });
 
@@ -302,10 +304,8 @@ router.post("/send/mentorReg", async (req, res) => {
   }
 });
 
-
-
 router.post("/send/unSubmail", async (req, res) => {
-  const { email,reason, additionalReason } = req.body;
+  const { email, reason, additionalReason, fullname } = req.body;
   if (!email) {
     return res.status(400).json({ message: "Missing email field" });
   }
@@ -313,7 +313,11 @@ router.post("/send/unSubmail", async (req, res) => {
   try {
     const templatePath1 = path.join(__dirname, "../views/unsub/unSub.ejs");
     // const templatePath2 = path.join(__dirname, "../views/mentors/admin/register.ejs");
-    const html1 = await ejs.renderFile(templatePath1, { reason, additionalReason });
+    const html1 = await ejs.renderFile(templatePath1, {
+      reason,
+      additionalReason,
+      fullname,
+    });
     // const html2 = await ejs.renderFile(templatePath2, { mentor, email });
 
     const mailOptions1 = {
@@ -337,12 +341,11 @@ router.post("/send/unSubmail", async (req, res) => {
     // const info2 = await transporter.sendMail(mailOptions2);
     // console.log("info2:", info2);
 
-    res.status(200).json({ success: true, info1, });
+    res.status(200).json({ success: true, info1 });
   } catch (error) {
     console.error("Error sending email:", error);
     res.status(500).json({ success: false, message: "Failed to send emails" });
   }
 });
-
 
 module.exports = router;
