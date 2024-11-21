@@ -8,8 +8,6 @@ const ejs = require("ejs");
 const React = require("react");
 const ReactDOMServer = require("react-dom/server");
 const Deny = require("../models/jobDeny");
-const { isArrayBindingElement } = require("typescript");
-
 const router = express.Router();
 
 // Nodemailer Transporter
@@ -298,6 +296,48 @@ router.post("/send/mentorReg", async (req, res) => {
     console.log("info2:", info2);
 
     res.status(200).json({ success: true, info1, info2 });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({ success: false, message: "Failed to send emails" });
+  }
+});
+
+
+
+router.post("/send/unSubmail", async (req, res) => {
+  const { email,reason, additionalReason } = req.body;
+  if (!email) {
+    return res.status(400).json({ message: "Missing email field" });
+  }
+
+  try {
+    const templatePath1 = path.join(__dirname, "../views/unsub/unSub.ejs");
+    // const templatePath2 = path.join(__dirname, "../views/mentors/admin/register.ejs");
+    const html1 = await ejs.renderFile(templatePath1, { reason, additionalReason });
+    // const html2 = await ejs.renderFile(templatePath2, { mentor, email });
+
+    const mailOptions1 = {
+      from: "Skill Mate <career@skillmate.ai>",
+      to: email,
+      subject: "You have unsubscribe successfully",
+      text: `Hello `,
+      html: html1,
+    };
+
+    // const mailOptions2 = {
+    //   from: "Skill Mate <career@skillmate.ai>",
+    //   to: "career@skillmate.ai",
+    //   subject: "New Registration for mentor",
+    //   text: `We received a new mentor ${mentor} (${email})`,
+    //   html: html2,
+    // };
+
+    const info1 = await transporter.sendMail(mailOptions1);
+    console.log("info1:", info1);
+    // const info2 = await transporter.sendMail(mailOptions2);
+    // console.log("info2:", info2);
+
+    res.status(200).json({ success: true, info1, });
   } catch (error) {
     console.error("Error sending email:", error);
     res.status(500).json({ success: false, message: "Failed to send emails" });

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Skillmate</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        text-align: start;
+        padding: 10px 0;
+      }
+      .header img {
+        max-width: 200px;
+      }
+      .content {
+        margin: 20px 0;
+      }
+      .content h1 {
+        font-size: 20px;
+        color: #333;
+      }
+      .content p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555;
+      }
+      .link {
+        color: #00c853;
+        text-decoration: none;
+      }
+      .button-container {
+        text-align: center;
+        margin: 20px 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      .button {
+        background-color: #00c853;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        display: inline-block;
+      }
+      .footer {
+        font-size: 14px;
+        color: #999;
+        text-align: center;
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #eaeaea;
+      }
+      .social-icons {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .social-icons img {
+        margin: 0 5px;
+        width: 24px;
+      }
+      .center {
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .logo-container {
+        display: flex;
+        justify-content: center; /* Centers horizontally */
+        align-items: center;     /* Centers vertically */
+        height: 100vh;           /* Adjust this for the desired height */
+      }
+
+      
+        .social-icons {
+          text-align: left; /* Aligns icons to the left */
+        }
+      
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <!-- Header with Logo -->
+      <div class="header">
+        <img
+           src="https://utfs.io/f/1JqDCzwAlKSxAkgn2Eql83ncmzjMKIivFyUg7eJLBRPxhN5C" 
+          alt="Skillmate Logo"
+        />
+      </div>
+      <!-- Header with Logo -->
+      <div class="center">
+        <img
+           src="https://utfs.io/f/1JqDCzwAlKSxD0juw6xjJgapltGXFZmzyCdSUYqA2n8bk5eB" 
+          alt="Mentor expressing pic"
+        />
+      </div>
+      <!-- Email Content -->
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <p>Hi,</p>
+        <p>Reason for unsubscribe: <strong><%= reason || "No reason provided" %></strong></p> 
+        <p>Additional details: <%= additionalReason || "None" %></p>
+      </div>
+      <!-- Divider and Additional Information -->
+      <hr />
+      <div class="content">
+        <p>
+          We are here to support you every step of the way. If you have any
+          questions or need assistance, please don’t hesitate to reach out to us
+          at
+        </p>
+        <div style=" justify-content: center;"> 
+          <a href="https://skillmate.ai">
+            <img
+              src="https://utfs.io/f/1JqDCzwAlKSxAkgn2Eql83ncmzjMKIivFyUg7eJLBRPxhN5C"
+              alt="Skillmate Logo"
+              width="100" 
+            />
+          </a>
+        </div>
+      </div>
+      <div style="text-align: left; color: #333;">
+        <h3 style="margin: 0; font-size: 1.2em; color: #0073e6;">Nivedhitha K</h3>
+        <p style="margin: 5px 0; font-size: 1em; color: #666;">People Operations Manager</p>
+        <p style="margin: 5px 0; font-size: 0.9em; color: #666;">
+          H 25, Tamil Nagar, Ramapuram, Chennai, Tamil Nadu 600089
+        </p>
+        <p style="margin: 5px 0; font-size: 0.9em;">
+          <a href="tel:8438988992" style="color: #0073e6; text-decoration: none;">8438988992</a> - 
+          <a href="mailto:hr@skillmate.ai" style="color: #0073e6; text-decoration: none;">hr@skillmate.ai</a>
+        </p>
+        <p style="margin: 5px 0; font-size: 0.9em;">
+          Website: <a href="https://skillmate.ai" style="color: #0073e6; text-decoration: none;">skillmate.ai</a>
+        </p>
+        <p><a href="mailto:chat@skillmate.ai" style="color: #007bff; text-decoration: none;">chat@skillmate.ai</a></p>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/skillmateofficial"
+          ><img
+            src="https://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19752.png"
+            alt="Facebook"
+        /></a>
+        <a href="https://www.instagram.com/skillmateofficial"
+          ><img
+            src="https://pngimg.com/uploads/instagram/instagram_PNG10.png"
+            alt="Instagram"
+        /></a>
+        <a href="https://twitter.com/skillmate257345"
+          ><img
+            src="https://pngimg.com/uploads/twitter/twitter_PNG9.png"
+            alt="Twitter"
+        /></a>
+        <a href="https://www.linkedin.com/company/skillmate-official/"
+          ><img
+            src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG2.png"
+            alt="LinkedIn"
+        /></a>
+      </div>
+      <div class="footer">
+        <p>
+          Thank you for choosing Skillmate. We look forward to helping you
+          achieve your career goals.
+        </p>
+        <p>Best Regards,</p>
+        <p><strong>The Skillmate Team</strong></p>
+      </div>      
+      <div class="disclaimer">
+        <p><strong>Disclaimer:</strong></p>
+        <p>
+          This e-mail message may contain confidential or legally privileged
+          information and is intended only for the use of the intended
+          recipient(s). Any unauthorized disclosure, dissemination, distribution,
+          copying, or taking any action in reliance on the information herein is
+          strictly prohibited.Please note that e-mails are not secure and cannot be guaranteed to be
+          error-free as they can be intercepted, amended, or may contain viruses.
+          By communicating with us via e-mail, you accept these risks.Company Name is not responsible for errors or omissions 
+          in this message and denies any liability for any damage arising from 
+          the use of e-mail. Any opinions or statements expressed in this 
+          message and any attachments are solely those of the author and do not 
+          necessarily represent those of the company.
+        </p>
+      </div>      
+  </body>
+</html>
